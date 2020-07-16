@@ -6,7 +6,7 @@
  *
  * File: capnp_client.c c-capnproto server.
  *
- * Author: Jiao.jinxing <jiaojixing@acoinfo.com>
+ * Author: Jiao.jinxing <jiaojinxing@acoinfo.com>
  *
  */
 
