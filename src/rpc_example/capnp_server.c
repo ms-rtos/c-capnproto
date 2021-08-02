@@ -94,14 +94,14 @@ void handle_connection(int read_fd, int write_fd)
         ms_stat_t st;
 
         i = 0;
-        while (ms_io_readdir_r(directory, &dirent, &res) > 0) {
+        while (ms_io_readdir_r(directory, &dirent, &res) == 0 && res) {
             i++;
         }
         ms_io_rewinddir(directory);
         response.files = new_ListFilesResponse_FileInfo_list(cs, i);
 
         i = 0;
-        while (ms_io_readdir_r(directory, &dirent, &res) > 0) {
+        while (ms_io_readdir_r(directory, &dirent, &res) == 0 && res) {
             sprintf(p_path_name, "/%s", dirent.d_name);
             if (ms_io_stat(abs_path, &st) < 0) {
                 ms_printf("Failed to stat %s!\n", abs_path);
